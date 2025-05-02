@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Visualizador Completo de Partitura + Tablatura</title>
+
+  <!-- Link para o CSS -->
+  <link rel="stylesheet" href="assets/styles.css" />
+
+  <!-- OpenSheetMusicDisplay -->
+  <script src="https://cdn.jsdelivr.net/npm/opensheetmusicdisplay@1.7.6/build/opensheetmusicdisplay.min.js"></script>
+  <!-- Magenta.js para reprodução MIDI e análise -->
+  <script src="https://cdn.jsdelivr.net/npm/@magenta/music@1.23.0/es6/core.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@magenta/music@1.23.0/es6/musicxml.js"></script>
+</head>
+<body>
+  <h2>🎼 Visualizador de Partitura com Tablatura, Som e Transposição</h2>
+
+  <!-- Controles e visualização -->
+  <input type="file" id="arquivoXml" accept=".xml,.musicxml" />
+  <div id="controls">
+    <button onclick="processarArquivo()">📥 Carregar</button>
+    <button onclick="tocarPartitura()">▶️ Tocar</button>
+    <button onclick="pararSom()">⏹️ Parar</button>
+    <label>🎸 Instrumento:
+      <select id="instrumentoSelect">
+        <option value="acoustic_grand_piano">Piano</option>
+        <option value="electric_guitar_clean">Guitarra</option>
+        <option value="acoustic_guitar_nylon">Violão</option>
+        <option value="violin">Violino</option>
+      </select>
+    </label>
+    <label>🔁 Transpor:
+      <input type="number" id="transposicao" value="0" step="1" style="width: 60px;" /> semitons
+    </label>
+    <button onclick="exportarTablatura()">💾 Exportar Tablatura</button>
+  </div>
+
+  <div id="container">
+    <div id="partitura">
+      <h3>Partitura</h3>
+      <div id="osmd-container"></div>
+    </div>
+    <div id="tablatura">
+      <h3>Tablatura</h3>
+      <pre id="resultado"></pre>
+    </div>
+  </div>
+
+  <!-- Link para o JavaScript -->
+  <script src="js/script.js"></script>
+</body>
+</html>

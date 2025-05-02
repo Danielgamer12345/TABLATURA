@@ -1,0 +1,15 @@
+body { font-family: sans-serif; padding: 20px; max-width: 1200px; margin: auto; }
+h2 { margin-bottom: 10px; }
+#container { display: flex; flex-wrap: wrap; gap: 30px; }
+#partitura, #tablatura { flex: 1; min-width: 300px; }
+pre {
+  background: #f0f0f0;
+  padding: 10px;
+  font-family: monospace;
+  white-space: pre-wrap;
+}
+#controls { margin: 20px 0; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+select, button, input[type="number"] {
+  padding: 6px 10px;
+  font-size: 14px;
+}
